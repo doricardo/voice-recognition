@@ -6,19 +6,20 @@ from pydub import AudioSegment
 #https://audio-extractor.net/pt/
 
 # convert mp3 file to wav                                                       
-sound = AudioSegment.from_mp3("dear-god.mp3")
+sound = AudioSegment.from_mp3("data/dear-god.mp3")
 print(sound.duration_seconds)
-sound.export("transcript.wav", format="wav")
+sound.export("data/transcript.wav", format="wav")
 
 # transcribe audio file                                                         
-AUDIO_FILE = "estranho.wav"
+AUDIO_FILE = "data/estranho.wav"
+LANGUAGE = "pt-BR"
 
 # use the audio file as the audio source
 r = sr.Recognizer()
 for i in range(2):
         with sr.AudioFile(AUDIO_FILE) as source:
                 audio = r.record(source)  #read the entire audio file
-        print("Transcription: " + r.recognize_google(audio, language='en-US'))
+        print("Transcription: " + r.recognize_google(audio, language=LANGUAGE))
 
 # use the audio file as the audio source
 #r = sr.Recognizer()
