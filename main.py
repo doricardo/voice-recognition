@@ -5,14 +5,14 @@ from pydub import AudioSegment
 #https://snapinsta.app/
 #https://audio-extractor.net/pt/
 
+# transcribe audio file                                                         
+AUDIO_FILE = "data/estranho.wav"
+LANGUAGE = "pt-BR"
+
 # convert mp3 file to wav                                                       
 sound = AudioSegment.from_mp3("data/dear-god.mp3")
 print(sound.duration_seconds)
 sound.export("data/transcript.wav", format="wav")
-
-# transcribe audio file                                                         
-AUDIO_FILE = "data/estranho.wav"
-LANGUAGE = "pt-BR"
 
 # use the audio file as the audio source
 r = sr.Recognizer()
